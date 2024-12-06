@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.shoplist.R
 import com.example.shoplist.domain.ShopItem
 
-class ShopItemActivity : AppCompatActivity() {
+class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
 
     private var screenMode = MODE_UNKNOWN
     private var shopItemId = ShopItem.UNDEFINED_ID
@@ -50,6 +50,10 @@ class ShopItemActivity : AppCompatActivity() {
         }
     }
 
+    override fun onEditingFinished() {
+        finish()
+    }
+
     companion object {
         private const val EXTRA_SCREEN_MODE = "extra_mode"
         private const val MODE_EDIT = "mode_edit"
@@ -70,4 +74,5 @@ class ShopItemActivity : AppCompatActivity() {
             return intent
         }
     }
+
 }
